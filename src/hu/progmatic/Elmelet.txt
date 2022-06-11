@@ -1,0 +1,89 @@
+ELMÉLET / 1. (5P)
+• Mi a különbség az Exception és a RuntimeException között?
+• Hogyan kell őket használni?
+• Mire érdemes figyelni a kezelésüknél?
+
+
+
+Az exception a Runtimeexception szülője. AZ exception osztályon belül van: checked és unchecked exception.
+checked exception (ellenőrzött hiba)
+- a fordító érzékeli a hibalehetőséget, és nem is hajlandó lefordítani a
+programot, ez a hibalehetőség kezeletlen;pl:fájl beolvasásánál
+unchecked exception (ellenőrizetlen hiba)
+- a program futása közben előforduló hiba.pl: NullPointerException
+
+Mindkét fajta Exception nem túl kivánatos a program futásakor. Az exceptionöket el kell dobni, vagy kezelni kell
+a kód összeállitásához,de a RuntimExceptionökre  nincs ilyen követelmény.
+Kezelhetjük úgy, h a metódusunkba "throws Exception"-t irunk, de itt nem kezeljük a hibát, úgyhogy
+nem ezt mondanám a legjobb megoldásnak. Mivel hiba(felhalmozódnak a hibák mondjuk) esetén ilyenkonkor a programunk leállhat.
+Tudjuk még úgy is kezelni hogy: try-catch-finally
+try {   --->  hiba adódhat
+} catch (Exception e) {  --->  ha bármilyen Exception “történik” az előző try-nál,akkor fut le.
+} finally { -->  mindenképpen lefut (kivéve ha fizikailag tropára megy a gép)
+}
+
+Haszna ennek a hibakezelésnek(try-catch), hogy a programunk nem áll le és megmondhatjuk a programnak
+ h hiba esetén mi történjen, irjon-e ki valamit stb.
+
+
+
+
+
+ELMÉLET / 2. (5P) • Hogyan tudunk egy kollekcióból bejárás közben elemeket törölni?
+• Mutasd be egy vázlatosan (kóddal) az elemek törlésének a módját.
+
+Irátorral járjuk körbe és a remove-val tudunk törölni.
+
+
+static void filter(Collection c) {
+ for (Iterator i = c.iterator(); i.hasNext(); )
+ if (!cond(i.next()))
+ i.remove();
+}
+
+while (iterator.hasNext()) {
+              RaceResult result = iterator.next();
+
+                if (result.getPercentage() != 100) {
+                    iterator.remove();
+                }
+
+
+
+ELMÉLET / 3. (5P)
+• Ismertesd röviden az OOP koncepciókat a Java-ban
+
+1. absztrakció :egyszerű dolgok összetettebb működést mutatnak, csak a funkcionalitás látható,
+absztrakt osztályok és interface-ek használatával érhető el.
+2.enkapszuláció : csak az fér hozzá egy adott dologhoz, aki (ami) azt birtokolja, logikai egység,
+az egység nem látja azt ami "nem rá tartozik", általában private láthatóságot kapnak
+3.öröklődés : egy osztály egy másik osztálytól örököl,Gyerek osztály megörökli a Szülő osztály publikus
+field-jeit és metódusait - tehát használhatja azokat de a Szülőosztály"anyaosztály" nem látja a GYEREK dolgait.
+4. többalakúság: egy metódus ugyanolyan néven más osztályban más funkciókat tölt be,
+overloading és overriding használatával érhető el
+5. csatolás:osztályok mennyit látnak egymásból (láthatósági jelzők)
+6 kohézió:egy egység (pl. package) egyetlen jól meghatározott feladatot lát el
+7. asszociáció:az objektumok közötti kapcsolatot határozza meg (egy objektum milyen viszonyban van egy
+másikkal)
+8.aggregáció:az association megvalósítása, amelyben az objektum állapotához tartozik egy másik
+objektum, amely önállóan is létező
+9.kompozíció
+az asszociáció másik megvalósítása, amelyben az objektum állapotához tartozik egy másik
+objektum, és a tartalmazó objektum nem létezik a “szülő” nélkül
+
+
+
+
+
+
+
+
+ELMÉLET / 4. (5P)
+• Milyen adatszerkezet segítségével lehetne a gyakorlati feladatok alatt
+beolvasott meccsek adatait mindig dátum szerint rendezett sorrendben
+tárolni?
+• Mit kellene a meccsek adatait tároló osztálynál változtatni, hogy képes
+legyen az adatszerkezettel együttműködni?
+
+-MAP segítségével lehet a gyakorlati feladatok alatt beolvasott meccsek adatait mindig dátum szerint rendezett sorrendben
+     tárolni.
