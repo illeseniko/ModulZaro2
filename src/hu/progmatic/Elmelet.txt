@@ -85,7 +85,7 @@ tárolni?
 • Mit kellene a meccsek adatait tároló osztálynál változtatni, hogy képes
 legyen az adatszerkezettel együttműködni?
 
--MAP segítségével lehet a gyakorlati feladatok alatt beolvasott
+-MAP segítségével,pontosabban TreeMappel lehet a gyakorlati feladatok alatt beolvasott
 meccsek adatait mindig dátum szerint rendezett sorrendben
      tárolni.
 
