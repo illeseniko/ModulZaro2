@@ -32,7 +32,7 @@ Haszna ennek a hibakezelésnek(try-catch), hogy a programunk nem áll le és meg
 ELMÉLET / 2. (5P) • Hogyan tudunk egy kollekcióból bejárás közben elemeket törölni?
 • Mutasd be egy vázlatosan (kóddal) az elemek törlésének a módját.
 
-Irátorral járjuk körbe és a remove-val tudunk törölni.
+Iterátorral járjuk körbe és a remove-val tudunk törölni.
 
 
 static void filter(Collection c) {
@@ -85,5 +85,8 @@ tárolni?
 • Mit kellene a meccsek adatait tároló osztálynál változtatni, hogy képes
 legyen az adatszerkezettel együttműködni?
 
--MAP segítségével lehet a gyakorlati feladatok alatt beolvasott meccsek adatait mindig dátum szerint rendezett sorrendben
+-MAP segítségével lehet a gyakorlati feladatok alatt beolvasott
+meccsek adatait mindig dátum szerint rendezett sorrendben
      tárolni.
+
+- Több dimenziós tömbben lehetne esetleg tárolni.

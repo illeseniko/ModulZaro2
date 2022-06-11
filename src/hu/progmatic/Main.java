@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.*;
 
 
-
 public class Main {
     public static void main(String[] args) {
 /*
@@ -63,7 +62,6 @@ public class Main {
             }
 
 
-
             try (PrintWriter writer = new PrintWriter("selected.csv")) {
                 writer.println("year;stage;date;team_a;team_b;goals_a;goals_b;penalties_a;penalties_b");
 
@@ -90,9 +88,9 @@ public class Main {
 
         int counter = 0;
 
-        for (Matches matchResults : matches){
-            if (matchResults.getGoalsA() > matchResults.getGoalsB()){
-                if(matchResults.getYear().equalsIgnoreCase(String.valueOf(worldCupYear))){
+        for (Matches matchResults : matches) {
+            if (matchResults.getGoalsA() > matchResults.getGoalsB()) {
+                if (matchResults.getYear().equalsIgnoreCase(String.valueOf(worldCupYear))) {
                     counter++;
                 }
             }
@@ -104,13 +102,28 @@ public class Main {
 
         System.out.println("4. Total goals by stage:");
 
-Map<String,Integer> countGoalsStage = new TreeMap<>();
+        Map<String, Integer> countGoalsStage = new TreeMap<>();
+        for (Matches matchResults : matches) {
+            if (matchResults.getYear().equalsIgnoreCase(String.valueOf(worldCupYear))) {
+                int count = countGoalsStage.getOrDefault(matchResults.getStage(), 0);
+                countGoalsStage.put(matchResults.getStage(),
+                        count + (matchResults.getGoalsA() + matchResults.getGoalsB()));
 
+            }
 
+        }
+        for (String stages : countGoalsStage.keySet()) {
+            System.out.println(stages + ":" + countGoalsStage.get(stages));
+
+        }
 
     }
 
+}
 
-    }
+
+
+
+
 
 
